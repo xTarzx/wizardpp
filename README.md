@@ -32,4 +32,4 @@ might wanna do this one:
     cmake . -B build -G "MinGW Makefiles"
     cmake --build build
 
-above can be applied to all modules in "extern"
+above can be applied to all modules in "extern" (no need for imgui)
