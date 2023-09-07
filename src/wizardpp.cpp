@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include "imgui.h"
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
@@ -13,6 +15,7 @@ int main(int argc, char const *argv[])
         return 1;
 
     glfwWindowHint(GLFW_RESIZABLE, false);
+
     GLFWwindow *window = glfwCreateWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "WiZard", NULL, NULL);
     if (!window)
     {
@@ -23,6 +26,8 @@ int main(int argc, char const *argv[])
     glfwMakeContextCurrent(window);
 
     ImGui::CreateContext();
+    ImGuiIO &io = ImGui::GetIO();
+    io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
     ImGui::StyleColorsDark();
     ImGui_ImplGlfw_InitForOpenGL(window, true);
     ImGui_ImplOpenGL3_Init("#version 130");
@@ -35,9 +40,15 @@ int main(int argc, char const *argv[])
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
 
-        // ImGui::Begin("test");
-        // ImGui::Text("wakanda");
-        // ImGui::End();
+        ImGui::Begin("WiZard_main", 0, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoMove);
+        ImGui::SetWindowPos({0, 0});
+        int w_width, w_height;
+        glfwGetWindowSize(window, &w_width, &w_height);
+        ImVec2 size(w_width, w_height);
+        ImGui::SetWindowSize(size);
+        ImGui::End();
+
+        // ImGui::ShowDemoWindow();
 
         ImGui::Render();
 
