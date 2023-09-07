@@ -1,0 +1,9 @@
+[submodule "extern/jansson"]
+	path = extern/jansson
+	url = https://github.com/akheron/jansson.git
+[submodule "extern/wizlightcpp"]
+	path = extern/wizlightcpp
+	url = https://github.com/xTarzx/wizlightcpp.git
+[submodule "extern/imgui"]
+	path = extern/imgui
+	url = https://github.com/ocornut/imgui.git
