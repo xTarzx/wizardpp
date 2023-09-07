@@ -1,6 +1,6 @@
 # WiZard
 
-$ git clone --recurse-submodules git@github.com:xTarzx/wizardpp.git
+    git clone --recurse-submodules git@github.com:xTarzx/wizardpp.git
 
 ### Linux
 
