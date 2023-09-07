@@ -1,12 +1,24 @@
 # WiZard
 
-ssh:
+## Cloning
+
+### https:
+
+    git clone --recurse-submodules https://github.com/xTarzx/wizardpp.git
+
+might wanna do this one:
+
+    git clone --recurse-submodules --shallow-submodules https://github.com/xTarzx/wizardpp.git
+
+### ssh:
 
     git clone --recurse-submodules git@github.com:xTarzx/wizardpp.git
 
-https:
+might wanna do this one:
 
-    git clone --recurse-submodules https://github.com/xTarzx/wizardpp.git
+    git clone --recurse-submodules --shallow-submodules git@github.com:xTarzx/wizardpp.git
+
+## Compilation
 
 ### Linux
 
