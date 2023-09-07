@@ -33,6 +33,9 @@ add_executable(${PROJECT_NAME}
     ${IMGUI_DIR}/imgui_widgets.cpp
     ${IMGUI_DIR}/backends/imgui_impl_glfw.cpp
     ${IMGUI_DIR}/backends/imgui_impl_opengl3.cpp
+
+
+    ${IMGUI_DIR}/imgui_demo.cpp
 )
 
 target_include_directories(${PROJECT_NAME} PRIVATE
