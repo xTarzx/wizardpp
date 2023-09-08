@@ -43,6 +43,60 @@ void WiZard::scan()
     (void)ret;
 }
 
+void *WiZard::_turn_on(void *context)
+{
+    WiZard *wiz = (WiZard *)context;
+
+    wiz->bulb.toggleLight(true);
+    pthread_exit(NULL);
+}
+
+void WiZard::turn_on()
+{
+    pthread_t thread;
+
+    int ret = pthread_create(&thread, NULL, &_turn_on, this);
+    // std::cout << "ret: " << ret << std::endl;
+    (void)ret;
+}
+
+void *WiZard::_turn_off(void *context)
+{
+    WiZard *wiz = (WiZard *)context;
+
+    wiz->bulb.toggleLight(false);
+    pthread_exit(NULL);
+}
+
+void WiZard::turn_off()
+{
+    pthread_t thread;
+
+    int ret = pthread_create(&thread, NULL, &_turn_off, this);
+    // std::cout << "ret: " << ret << std::endl;
+    (void)ret;
+}
+
+void *WiZard::_set_rgb(void *context)
+{
+    WiZard *wiz = (WiZard *)context;
+
+    wiz->bulb.setRGBColor(wiz->rgb[0], wiz->rgb[1], wiz->rgb[2]);
+    pthread_exit(NULL);
+}
+
+void WiZard::set_rgb(int r, int g, int b)
+{
+    this->rgb[0] = r;
+    this->rgb[1] = g;
+    this->rgb[2] = b;
+    pthread_t thread;
+
+    int ret = pthread_create(&thread, NULL, &_set_rgb, this);
+    // std::cout << "ret: " << ret << std::endl;
+    (void)ret;
+}
+
 std::string WiZard::get_device_ip()
 {
     return this->bulb.getDeviceIp();

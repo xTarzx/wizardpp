@@ -36,6 +36,8 @@ int main(int argc, char const *argv[])
 
     WiZard wiz;
 
+    float rgb[3] = {0};
+
     while (!glfwWindowShouldClose(window))
     {
         glfwPollEvents();
@@ -81,7 +83,27 @@ int main(int argc, char const *argv[])
 
         ImGui::End(); // bulbs
 
-        ImGui::ShowDemoWindow();
+        ImGui::Begin("control");
+        if (wiz.get_scan_state() == WIZ_SCAN_STATE::FOUND)
+        {
+            if (ImGui::Button("on"))
+            {
+                wiz.turn_on();
+            }
+            if (ImGui::Button("off"))
+            {
+                wiz.turn_off();
+            }
+
+            ImGui::ColorPicker3("rgb", rgb);
+            if (ImGui::Button("set rbg"))
+            {
+                wiz.set_rgb(int(rgb[0] * 255), int(rgb[1] * 255), int(rgb[2] * 255));
+            }
+        }
+        ImGui::End(); // control
+
+        // ImGui::ShowDemoWindow();
 
         ImGui::Render();
 
