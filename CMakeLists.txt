@@ -21,6 +21,7 @@ set(GLFW_DIR ${PROJECT_SOURCE_DIR}/extern/glfw/)
 
 add_executable(${PROJECT_NAME}
     ${CMAKE_SOURCE_DIR}/src/wizardpp.cpp
+    ${CMAKE_SOURCE_DIR}/src/wizard.cpp
 
     ${WIZLIGHTPP_DIR}/src/log.cpp
     ${WIZLIGHTPP_DIR}/src/udp.cpp
